@@ -102,7 +102,7 @@ dump(&vari1,(char *)&ptrabc-(char *)&vari1+sizeof(ptrabc),8,DUMP_8A);
   printf("Adresse von vari1:%p\n",(void *)&vari1);
   ptrc= (unsigned char  *)& vari1;     printf("%02hhx\n",*ptrc);  
   ptrc=((unsigned char  *)& vari1)+1;  printf("%02hhx\n",*ptrc);  
-  ptrc=((unsigned char  *)& vari1)+2;  printf("%02hhx\n",*ptrc);  //<<<<
+  ptrc=((unsigned char  *)& vari1)+2;  printf("%02hhx\n",*ptrc);  //<<<< es wird die adresse vom vari1 zu einem unsigned char pointer gecastet, da ptrc ein unsigned char pointer ist. ptrc zeigt nun auf die adresse von vari1 versetzt um 2*sizeof(char) (=1Byte) weiter 
   ptrc=((unsigned char  *)& vari1)+3;  printf("%02hhx\n",*ptrc);  
   ptrc=((unsigned char  *)& vari1)+4;  printf("%02hhx\n",*ptrc);  
   ptrc=((unsigned char  *)& vari1)+5;  printf("%02hhx\n",*ptrc); 
@@ -116,13 +116,13 @@ dump(&vari1,(char *)&ptrabc-(char *)&vari1+sizeof(ptrabc),8,DUMP_8A);
   printf("Adresse von vari1:%p\n",(void *)&vari1);
   ptrs= (unsigned short *)& vari1;    printf("%04hx\n",*ptrs);    
   ptrs=((unsigned short *)& vari1)+2; printf("%04hx\n",*ptrs);
-  ptrs=((unsigned short *)& vari1)+3; printf("%04hx\n",*ptrs); //<<<< 
+  ptrs=((unsigned short *)& vari1)+3; printf("%04hx\n",*ptrs); //<<<< es wird die adresse vom vari1 zu einem unsigned short pointer gecastet, da ptrs ein unsigned short pointer ist. ptrs zeigt nun auf die adresse von vari1 verstz um 2*sizeof(short) (=2Byte) weiter 
   ptrs=((unsigned short *)& vari1)+4; printf("%04hx\n",*ptrs); 
   ptrs=((unsigned short *)& vari1)+5; printf("%04hx\n",*ptrs); 
 #elif 0
   printf("Adresse von vari1:%p\n",(void *)&vari1);
   ptri=(unsigned int *)&vari1;    printf("%08x\n",*ptri);   
-  ptri=(unsigned int *)&vari1+1;  printf("%08x\n",*ptri);  //<<<<
+  ptri=(unsigned int *)&vari1+1;  printf("%08x\n",*ptri);  //<<<< es wird die adresse vom vari1 zu einem unsigned int pointer gecastet, da ptri ein unsigned int pointer ist. ptri zeigt nun auf die adresse von vari1 verstz um 2*sizeof(int) (=4Byte) weiter 
   ptri=(unsigned int *)&vari1+2;  printf("%08x\n",*ptri);  
 #endif
 
