@@ -115,6 +115,7 @@ return diff;
 #if 1
 // Erstellen sie einen Alias eines Datentyps zur Nutzung für diese Call By Value Aufgaben
 typedef struct
+    cbv_t
 {
     int arr[4][5]
 } cbv_t;
@@ -123,13 +124,15 @@ void debugv(cbv_t mat)
 {
     for (int i = 0; i < 4; i++)
     {
-        for (int j = 0; j < 4; j++)
+        for (int j = 0; j < 5; j++)
         {
-            printf("%3d ", mat.arr[i][j]);
+            printf("%3d ", mat.arr[i * 4 + j]);
         }
+        printf("\n");
     }
+    printf("\n");
 }
-#endif
+#endif(
 // Aufgabe 4b) Matrix per Call By Value zurückgeben
 // Erstellen sie eine Funktion, welche eine Matrix fixer Größe [4][5]
 //    erstellt, die einzelnen Elemente mittels matr[zeile][spale]=zeile*100+spalte;
@@ -229,13 +232,13 @@ int main(int argc, char const *argv[])
 #if 1
         else if ((strcmp(arg1, "debugv") == 0) && (arg2 != NULL))
         {
-            cbv_t mat;
+            struct cbv_t mat;
             if (strcmp(arg2, "mat1") == 0)
-                mat = (cbv_t){mat1}; // mat <- mat1
+                mat = (struct cbv_t){mat1}; // mat <- mat1
             if (strcmp(arg2, "mat2") == 0)
-                mat = (cbv_t){mat2}; // mat <- mat2
+                mat = (struct cbv_t){mat2}; // mat <- mat2
             if (strcmp(arg2, "mat3") == 0)
-                mat = (cbv_t){mat2}; // mat <- mat3
+                mat = (struct cbv_t){mat2}; // mat <- mat3
             debugv(mat);
         }
 #endif
